@@ -32,7 +32,54 @@ var assert = require("assert")
 
 const altNumbers = (numArray) => {
     // TODO: COMPLETE THIS FUNCTION
-    return [];
+    let answer = [];
+    let posarray = [];
+    let negarray = [];
+    let posindex = 0;
+    let negindex = 0;
+
+    for (let i = 0; i < numArray.length; i++) {
+
+        if (numArray[i] >= 0) {
+            posarray[posindex] = numArray[i];
+            posindex++;
+        }
+    
+        else {
+            negarray[negindex] = numArray[i];
+            negindex++;
+        }
+    }
+
+    //more negative numbers
+    if (negarray.length > posarray.length) {
+        for (let i = 0; i < negarray.length - 1; i++) {
+
+        const tobeadded = [negarray[i], posarray[i]];
+        answer = answer.concat(tobeadded);
+
+        }
+        answer[answer.length] = negarray[negarray.length - 1];
+    }
+
+    //more positive numbers
+    else if (posarray.length > negarray.length) {
+        for (let i = 0; i < posarray.length - 1; i++) {
+           const tobeadded = [posarray[i], negarray[i]];
+           answer = answer.concat(tobeadded);
+        }
+        answer[answer.length] = posarray[posarray.length - 1];
+    }
+
+    //equal amount, dosent matter start pos or neg
+    else {
+        for (let i = 0; i < posarray.length; i++) {
+            const tobeadded = [posarray[i], negarray[i]];
+            answer = answer.concat(tobeadded);
+        }
+    }
+
+    return answer;
 }
 
 module.exports = { altNumbers } // Do not modify this line
