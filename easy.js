@@ -33,48 +33,52 @@ var assert = require("assert")
 const altNumbers = (numArray) => {
     // TODO: COMPLETE THIS FUNCTION
     let answer = [];
-    let posarray = [];
-    let negarray = [];
-    let posindex = 0;
-    let negindex = 0;
+    let posArray = [];
+    let negArray = [];
+    let posIndex = 0;
+    let negIndex = 0;
+
+    //separate negative numbers and positive numbers
 
     for (let i = 0; i < numArray.length; i++) {
 
         if (numArray[i] >= 0) {
-            posarray[posindex] = numArray[i];
-            posindex++;
+            posArray[posIndex] = numArray[i];
+            posIndex++;
         }
     
         else {
-            negarray[negindex] = numArray[i];
-            negindex++;
+            negArray[negIndex] = numArray[i];
+            negIndex++;
         }
     }
 
     //more negative numbers
-    if (negarray.length > posarray.length) {
-        for (let i = 0; i < negarray.length - 1; i++) {
+    if (negArray.length > posArray.length) {
 
-        const tobeadded = [negarray[i], posarray[i]];
-        answer = answer.concat(tobeadded);
-
+        for (let i = 0; i < negArray.length - 1; i++) {
+            const tobeadded = [negArray[i], posArray[i]];
+            answer = answer.concat(tobeadded);
         }
-        answer[answer.length] = negarray[negarray.length - 1];
+
+        answer[answer.length] = negArray[negArray.length - 1];
     }
 
     //more positive numbers
-    else if (posarray.length > negarray.length) {
-        for (let i = 0; i < posarray.length - 1; i++) {
-           const tobeadded = [posarray[i], negarray[i]];
+    else if (posArray.length > negArray.length) {
+
+        for (let i = 0; i < posArray.length - 1; i++) {
+           const tobeadded = [posArray[i], negArray[i]];
            answer = answer.concat(tobeadded);
         }
-        answer[answer.length] = posarray[posarray.length - 1];
+
+        answer[answer.length] = posArray[posArray.length - 1];
     }
 
     //equal amount, dosent matter start pos or neg
     else {
-        for (let i = 0; i < posarray.length; i++) {
-            const tobeadded = [posarray[i], negarray[i]];
+        for (let i = 0; i < posArray.length; i++) {
+            const tobeadded = [posArray[i], negArray[i]];
             answer = answer.concat(tobeadded);
         }
     }
