@@ -31,7 +31,7 @@ var assert = require("assert")
 // Explanation: Empty array...
 
 const altNumbers = (numArray) => {
-    // TODO: COMPLETE THIS FUNCTION
+
     let answer = [];
     let posArray = [];
     let negArray = [];
@@ -39,7 +39,6 @@ const altNumbers = (numArray) => {
     let negIndex = 0;
 
     //separate negative numbers and positive numbers
-
     for (let i = 0; i < numArray.length; i++) {
 
         if (numArray[i] >= 0) {
